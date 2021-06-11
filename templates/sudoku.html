@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ header }}</h1>
+<div>
+    <h2>Problem</h2>
+    <table>
+        <colgroup><col><col><col></colgroup>
+        <colgroup><col><col><col></colgroup>
+        <colgroup><col><col><col></colgroup>
+        <tbody>
+            {% for i in range(0,3) %}
+                <tr>
+                    {% for cell in board[i] %}
+                        <td>{{cell}}</td>
+                {% endfor %}
+            {% endfor %}        
+        <tbody>
+            {% for i in range(3,6) %}
+                <tr>
+                    {% for cell in board[i] %}
+                        <td>{{cell}}</td> 
+                {% endfor %}
+            {% endfor %}              
+        <tbody>
+            {% for i in range(6,9) %}
+                <tr>
+                    {% for cell in board[i] %}
+                        <td>{{cell}}</td> 
+                    {% endfor %}
+            {% endfor %}       
+    </table>
+</div>
+<div>
+<h2>Solution</h2>
+    <table>
+        <colgroup><col><col><col></colgroup>
+        <colgroup><col><col><col></colgroup>
+        <colgroup><col><col><col></colgroup>
+        <tbody>
+            {% for i in range(0,3) %}
+                <tr>
+                    {% for cell in solved[i] %}
+                        <td>{{cell}}</td>
+                {% endfor %}
+            {% endfor %}        
+        <tbody>
+            {% for i in range(3,6) %}
+                <tr>
+                    {% for cell in solved[i] %}
+                        <td>{{cell}}</td> 
+                {% endfor %}
+            {% endfor %}              
+        <tbody>
+            {% for i in range(6,9) %}
+                <tr>
+                    {% for cell in solved[i] %}
+                        <td>{{cell}}</td> 
+                    {% endfor %}
+            {% endfor %}       
+    </table>
+</div>
+{% endblock %}

@@ -1,4 +1,10 @@
-from scraper import *
+from scraper import get_board
+
+nyt_url = {
+    'easy':'https://www.nytimes.com/puzzles/sudoku/easy',
+    'medium':'https://www.nytimes.com/puzzles/sudoku/medium',
+    'hard':'https://www.nytimes.com/puzzles/sudoku/hard'
+}
 
 def print_board(board):
     for i in range(len(board)): #Iterate thorugh rows
@@ -42,7 +48,8 @@ def is_valid(board, number, position): #position is a tuple, using 0 = x value o
 def solve_board(board):
     empty = find_empty(board)
     if not empty:
-        return True #There are no more empty cells in the sodoku - it has been solved
+        print_board(board)
+        return True  #There are no more empty cells in the sodoku - it has been solved
     else:
         x_board, y_board = empty
     for i in range(1,10):
@@ -53,11 +60,9 @@ def solve_board(board):
             board[x_board][y_board] = 0 #Wrong value
     return False
 
-def main(url):
-    test_board = get_board(url)
-    print_board(test_board)
-    solve_board(test_board)
-    print('*************************')
-    print_board(test_board)
-
-main('https://www.nytimes.com/puzzles/sudoku/hard') #sample
+def main(board):
+    while True:
+        if solve_board(board):
+            return(board)
+        else:
+            pass
